@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    CHAT
+    <form id="form">
+      <input type="text" name="message" placeholder="Message" />
+
+      <div id="messages"></div>
+    </form>
+
+    <script>
+      let url = `ws://${window.location.host}/ws/socket-server/`;
+      //   {
+      //     headers: {
+      //       Autorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0NDcwNzU3LCJpYXQiOjE3MzQ0NzA0NTcsImp0aSI6IjAxMzM3OGJhZWZiODQ1NDlhNjk5Y2YwN2UxN2ZlMDU4IiwidXNlcl9pZCI6MX0.0sR2au02CuxaioE819F-X9AJYPfoJKWmrOkE7ElkBMM",
+      //     },
+      //   }
+      const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2MTk5NDM5LCJpYXQiOjE3MzQ0NzE0MzksImp0aSI6IjAzMDczNjgzMTBlZjRmYzhiZjkzZjU3NGI1YjUwYzY1IiwidXNlcl9pZCI6MX0.ip5Ph5MFvpTKE0DtlyGTpA_CA2A3uPWohRUmGsylwmA";
+      const chatSocket = new WebSocket(
+        `${url}?token=${encodeURIComponent(token)}`
+      );
+      const form = document.getElementById("form");
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        let message = e.target.message.value;
+
+        chatSocket.send(
+          JSON.stringify({
+            message: message,
+          })
+        );
+      };
+
+      chatSocket.onmessage = (e) => {
+        let data = JSON.parse(e.data);
+
+        if (data.type == "chat") {
+          const messages = document.getElementById("messages");
+          messages.insertAdjacentHTML(
+            "beforeend",
+            `
+                <p> ${data.message_info.message}</p>
+            `
+          );
+        }
+        console.log("DATA ", data);
+      };
+    </script>
+  </body>
+</html>

@@ -2,7 +2,7 @@ asgiref==3.8.1
 attrs==24.3.0
 autobahn==23.1.2
 Automat==24.8.1
-backports.zoneinfo==0.2.1
+# backports.zoneinfo==0.2.1  # Remove this line
 cffi==1.17.1
 channels==3.0.4
 constantly==23.10.4

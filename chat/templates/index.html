@@ -14,14 +14,14 @@
     </form>
 
     <script>
-      let url = `ws://${window.location.host}/ws/socket-server/`;
+      let url = `wss://django-hello-world-omega-dun.vercel.app/ws/socket-server/`;
       //   {
       //     headers: {
       //       Autorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM0NDcwNzU3LCJpYXQiOjE3MzQ0NzA0NTcsImp0aSI6IjAxMzM3OGJhZWZiODQ1NDlhNjk5Y2YwN2UxN2ZlMDU4IiwidXNlcl9pZCI6MX0.0sR2au02CuxaioE819F-X9AJYPfoJKWmrOkE7ElkBMM",
       //     },
       //   }
       const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2MTk5NDM5LCJpYXQiOjE3MzQ0NzE0MzksImp0aSI6IjAzMDczNjgzMTBlZjRmYzhiZjkzZjU3NGI1YjUwYzY1IiwidXNlcl9pZCI6MX0.ip5Ph5MFvpTKE0DtlyGTpA_CA2A3uPWohRUmGsylwmA";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2NjI4MjYyLCJpYXQiOjE3MzQ5MDAyNjIsImp0aSI6ImUwMGU2MjAzNGZlYzRmMTM5M2ViMzcyNGRlNTdjNzBiIiwidXNlcl9pZCI6MX0.vlFWkY_zY6QzIYgRZ1vRCII66nTw2lmLbT_PEJV-Ov0";
       const chatSocket = new WebSocket(
         `${url}?token=${encodeURIComponent(token)}`
       );

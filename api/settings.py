@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "example"
 ]
 
-ASGI_APPLICATION = 'chatbackend.asgi.application'
+ASGI_APPLICATION = 'api.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {

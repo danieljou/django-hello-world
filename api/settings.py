@@ -186,3 +186,12 @@ MEDIA_URL = '/media/'
 CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = 'chat.User'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('redis', 6379)],
+        },
+    },
+}
